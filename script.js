@@ -1,6 +1,6 @@
 let operator;
-let number1 = "";
-let number2 = "";
+let firstNumber = "";
+let secondNumber = "";
 
 function add(a, b) {
   return a + b;
@@ -40,35 +40,35 @@ function updateDisplay(value) {
 
 function updateNumbers(digit) {
   if (!operator) {
-    number1 += digit;
-    updateDisplay(number1);
+    firstNumber += digit;
+    updateDisplay(firstNumber);
   } else {
-    number2 += digit;
-    updateDisplay(number2);
+    secondNumber += digit;
+    updateDisplay(secondNumber);
   }
 }
 
 function setOperator(operatorType) {
-  if (!number1) {
-    number1 = 0;
+  if (!firstNumber) {
+    firstNumber = 0;
   }
-  if (number1 && number2 && operator) {
-    number1 = calculateResult();
-    number2 = "";
+  if (firstNumber && secondNumber && operator) {
+    firstNumber = calculateResult();
+    secondNumber = "";
   }
   operator = operatorType;
 }
 
 function calculateResult() {
-  let result = operate(operator, +number1, +number2);
+  let result = operate(operator, +firstNumber, +secondNumber);
   updateDisplay(result);
   return result;
 }
 
 function clearCalculator() {
-  number1 = "";
+  firstNumber = "";
   operator = "";
-  number2 = "";
+  secondNumber = "";
   updateDisplay("");
 }
 
