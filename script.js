@@ -48,12 +48,24 @@ function updateNumbers(digit) {
   }
 }
 
+function setOperator(operatorType) {
+  if (!number1) {
+    number1 = 0;
+  }
+  operator = operatorType;
+}
+
 let container = document.querySelector(".container");
 container.addEventListener("click", (event) => {
   let target = event.target;
+  let buttonType = target.classList[0];
 
-  if (target.classList[0] === "digit") {
+  if (buttonType === "digit") {
     const digit = target.textContent;
     updateNumbers(digit);
+  }
+
+  if (buttonType === "operator") {
+    setOperator(target.textContent);
   }
 });
