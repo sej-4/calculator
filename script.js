@@ -74,16 +74,15 @@ function clearCalculator() {
 
 let container = document.querySelector(".container");
 container.addEventListener("click", (event) => {
-  let target = event.target;
-  let buttonType = target.classList[0];
+  let button = event.target;
+  let buttonType = button.classList[0];
 
   if (buttonType === "digit") {
-    const digit = target.textContent;
-    updateNumbers(digit);
+    updateNumbers(button.textContent);
   }
 
   if (buttonType === "operator") {
-    setOperator(target.textContent);
+    setOperator(button.textContent);
   }
 
   if (buttonType === "equal") {
