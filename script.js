@@ -52,7 +52,17 @@ function setOperator(operatorType) {
   if (!number1) {
     number1 = 0;
   }
+  if (number1 && number2 && operator) {
+    number1 = calculateResult();
+    number2 = "";
+  }
   operator = operatorType;
+}
+
+function calculateResult() {
+  let result = operate(operator, +number1, +number2);
+  updateDisplay(result);
+  return result;
 }
 
 function clearCalculator() {
@@ -77,8 +87,7 @@ container.addEventListener("click", (event) => {
   }
 
   if (buttonType === "equal") {
-    let result = operate(operator, number1, number2);
-    updateDisplay(result);
+    calculateResult();
   }
 
   if (buttonType === "clear") {
