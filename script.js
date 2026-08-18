@@ -38,12 +38,12 @@ function updateDisplay(value) {
   display.textContent = value;
 }
 
-function updateNumbers(digit) {
+function updateNumbers(value) {
   if (!operator) {
-    firstNumber += digit;
+    firstNumber += value;
     updateDisplay(firstNumber);
   } else {
-    secondNumber += digit;
+    secondNumber += value;
     updateDisplay(secondNumber);
   }
 }
