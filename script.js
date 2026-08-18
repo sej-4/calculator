@@ -1,4 +1,4 @@
-let operator;
+let operator = "";
 let firstNumber = "";
 let secondNumber = "";
 
@@ -49,25 +49,25 @@ function updateNumbers(value) {
 }
 
 function setOperator(operatorType) {
-  if (!firstNumber) {
-    firstNumber = 0;
-  }
-  if (firstNumber && secondNumber && operator) {
+  if (!firstNumber) firstNumber = 0;
+
+  if (operator && firstNumber && secondNumber) {
     firstNumber = calculateResult();
     secondNumber = "";
   }
+
   operator = operatorType;
 }
 
 function calculateResult() {
-  let result = operate(operator, +firstNumber, +secondNumber);
+  const result = operate(operator, +firstNumber, +secondNumber);
   updateDisplay(result);
   return result;
 }
 
 function clearCalculator() {
-  firstNumber = "";
   operator = "";
+  firstNumber = "";
   secondNumber = "";
   updateDisplay("");
 }
@@ -77,19 +77,17 @@ container.addEventListener("click", (event) => {
   const button = event.target;
   const buttonType = button.classList[0];
 
-  if (buttonType === "digit") {
-    updateNumbers(button.textContent);
-  }
-
-  if (buttonType === "operator") {
-    setOperator(button.textContent);
-  }
-
-  if (buttonType === "equal") {
-    calculateResult();
-  }
-
-  if (buttonType === "clear") {
-    clearCalculator();
+  switch (buttonType) {
+    case "digit":
+      updateNumbers(button.textContent);
+      break;
+    case "operator":
+      setOperator(button.textContent);
+      break;
+    case "equal":
+      calculateResult();
+      break;
+    case "clear":
+      clearCalculator();
   }
 });
