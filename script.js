@@ -19,7 +19,6 @@ function divide(a, b) {
 }
 
 function operate(operator, firstNumber, secondNumber) {
-  let result;
   switch (operator) {
     case "+":
       return add(firstNumber, secondNumber);
