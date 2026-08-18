@@ -55,6 +55,13 @@ function setOperator(operatorType) {
   operator = operatorType;
 }
 
+function clearCalculator() {
+  number1 = "";
+  operator = "";
+  number2 = "";
+  updateDisplay("");
+}
+
 let container = document.querySelector(".container");
 container.addEventListener("click", (event) => {
   let target = event.target;
@@ -72,5 +79,9 @@ container.addEventListener("click", (event) => {
   if (buttonType === "equal") {
     let result = operate(operator, number1, number2);
     updateDisplay(result);
+  }
+
+  if (buttonType === "clear") {
+    clearCalculator();
   }
 });
