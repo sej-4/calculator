@@ -72,10 +72,10 @@ function clearCalculator() {
   updateDisplay("");
 }
 
-let container = document.querySelector(".container");
+const container = document.querySelector(".container");
 container.addEventListener("click", (event) => {
-  let button = event.target;
-  let buttonType = button.classList[0];
+  const button = event.target;
+  const buttonType = button.classList[0];
 
   if (buttonType === "digit") {
     updateNumbers(button.textContent);
