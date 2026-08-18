@@ -26,7 +26,7 @@ function operate(operator, firstNumber, secondNumber) {
       return subtract(firstNumber, secondNumber);
     case "x":
       return multiply(firstNumber, secondNumber);
-    case "/":
+    case "÷":
       return divide(firstNumber, secondNumber);
     default:
       return null;
