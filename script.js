@@ -33,6 +33,10 @@ function operate(operator, firstNumber, secondNumber) {
   }
 }
 
+function isNumber(value) {
+  return value !== "" && !isNaN(value);
+}
+
 function updateDisplay(value) {
   const display = document.querySelector(".display");
   display.textContent = value;
@@ -41,17 +45,22 @@ function updateDisplay(value) {
 function updateNumbers(value) {
   if (!operator) {
     firstNumber += value;
+    firstNumber = Number(firstNumber);
     updateDisplay(firstNumber);
   } else {
     secondNumber += value;
+    secondNumber = Number(secondNumber);
     updateDisplay(secondNumber);
   }
 }
 
 function setOperator(operatorType) {
-  if (!firstNumber && !isNaN(firstNumber)) firstNumber = 0;
+  if (firstNumber === "") firstNumber = 0;
 
-  if ((operator && firstNumber && secondNumber) || isNaN(firstNumber)) {
+  if (
+    (operator && isNumber(firstNumber) && isNumber(secondNumber)) ||
+    isNaN(firstNumber)
+  ) {
     firstNumber = calculateResult();
     secondNumber = "";
   }
@@ -60,7 +69,7 @@ function setOperator(operatorType) {
 }
 
 function calculateResult() {
-  const result = operate(operator, +firstNumber, +secondNumber);
+  const result = operate(operator, firstNumber, secondNumber);
   updateDisplay(result);
   return result;
 }
