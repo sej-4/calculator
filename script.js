@@ -49,9 +49,9 @@ function updateNumbers(value) {
 }
 
 function setOperator(operatorType) {
-  if (!firstNumber) firstNumber = 0;
+  if (!firstNumber && !isNaN(firstNumber)) firstNumber = 0;
 
-  if (operator && firstNumber && secondNumber) {
+  if ((operator && firstNumber && secondNumber) || isNaN(firstNumber)) {
     firstNumber = calculateResult();
     secondNumber = "";
   }
