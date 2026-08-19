@@ -80,7 +80,7 @@ function clearCalculator() {
   operator = "";
   firstNumber = "";
   secondNumber = "";
-  updateDisplay("");
+  updateDisplay(0);
 }
 
 const container = document.querySelector(".container");
