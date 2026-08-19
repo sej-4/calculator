@@ -44,11 +44,11 @@ function updateDisplay(value) {
 
 function updateNumbers(value) {
   if (!operator) {
-    firstNumber += value;
+    firstNumber === 0 ? (firstNumber = value) : (firstNumber += value);
     firstNumber = Number(firstNumber);
     updateDisplay(firstNumber);
   } else {
-    secondNumber += value;
+    secondNumber === 0 ? (secondNumber = value) : (secondNumber += value);
     secondNumber = Number(secondNumber);
     updateDisplay(secondNumber);
   }
