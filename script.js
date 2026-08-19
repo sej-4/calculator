@@ -69,6 +69,8 @@ function setOperator(operatorType) {
 }
 
 function calculateResult() {
+  if (!isNumber(secondNumber)) return;
+
   const result = operate(operator, firstNumber, secondNumber);
   updateDisplay(result);
   return result;
