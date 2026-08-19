@@ -58,7 +58,7 @@ function setOperator(operatorType) {
   if (firstNumber === "") firstNumber = 0;
 
   if (
-    (operator && isNumber(firstNumber) && isNumber(secondNumber)) ||
+    (operator && firstNumber !== "" && secondNumber !== "") ||
     isNaN(firstNumber)
   ) {
     firstNumber = calculateResult();
@@ -69,7 +69,7 @@ function setOperator(operatorType) {
 }
 
 function calculateResult() {
-  if (!isNumber(secondNumber)) return;
+  if (secondNumber === "") return;
 
   const result = operate(operator, firstNumber, secondNumber);
   updateDisplay(result);
