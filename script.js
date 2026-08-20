@@ -2,20 +2,25 @@ let operator = "";
 let firstNumber = "";
 let secondNumber = "";
 
+function round(value) {
+  const multiplier = Math.pow(10, 8);
+  return Math.round(value * multiplier) / multiplier;
+}
+
 function add(a, b) {
-  return a + b;
+  return round(a + b);
 }
 
 function subtract(a, b) {
-  return a - b;
+  return round(a - b);
 }
 
 function multiply(a, b) {
-  return a * b;
+  return round(a * b);
 }
 
 function divide(a, b) {
-  return a / b;
+  return round(a / b);
 }
 
 function operate(operator, firstNumber, secondNumber) {
@@ -31,10 +36,6 @@ function operate(operator, firstNumber, secondNumber) {
     default:
       return null;
   }
-}
-
-function isNumber(value) {
-  return value !== "" && !isNaN(value);
 }
 
 function updateDisplay(value) {
