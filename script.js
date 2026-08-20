@@ -49,6 +49,14 @@ function updateDisplay(value) {
   if (display.textContent.length > 10) convertToExponentialNotation();
 }
 
+function clearCalculator() {
+  operator = "";
+  firstNumber = "";
+  secondNumber = "";
+  result = "";
+  updateDisplay(0);
+}
+
 function updateNumbers(value) {
   if (result !== "" && secondNumber !== "") clearCalculator();
 
@@ -85,14 +93,6 @@ function calculateResult() {
   const result = operate(operator, firstNumber, secondNumber);
   updateDisplay(result);
   return result;
-}
-
-function clearCalculator() {
-  operator = "";
-  firstNumber = "";
-  secondNumber = "";
-  result = "";
-  updateDisplay(0);
 }
 
 const container = document.querySelector(".container");
