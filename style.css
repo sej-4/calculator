@@ -12,21 +12,24 @@ body {
 }
 
 .container {
-  background-color: orange;
-  height: 475px;
+  background-color: rgb(33, 33, 33);
+  height: 450px;
   width: 325px;
   padding: 20px;
+  border-radius: 10px;
 
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .display {
   flex: 1 1 300px;
-  background-color: white;
+  background-color: #5e5c5c;
+  color: white;
   font-size: 3rem;
-  height: 90px;
   padding-right: 10px;
+  margin-bottom: 20px;
 
   display: flex;
   justify-content: flex-end;
@@ -34,6 +37,14 @@ body {
 }
 
 button {
-  flex: 1 1 60px;
+  flex: 1 1 50px;
   font-size: 1.4rem;
+  border: none;
+  color: white;
+  background-color: #5e5c5c;
+  border-radius: 50%;
+}
+
+.operator {
+  background-color: #e97312;
 }
