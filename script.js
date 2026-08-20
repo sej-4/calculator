@@ -19,7 +19,8 @@ const calculator = {
     return round(a * b);
   },
   divide(a, b) {
-    return round(a / b);
+    const result = round(a / b);
+    return result === Infinity ? NaN : result;
   },
 };
 
