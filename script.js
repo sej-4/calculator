@@ -1,6 +1,7 @@
 let operator = "";
 let firstNumber = "";
 let secondNumber = "";
+let result = "";
 
 function round(value) {
   const multiplier = Math.pow(10, 8);
@@ -51,6 +52,8 @@ function updateDisplay(value) {
 }
 
 function updateNumbers(value) {
+  if (result !== "" && secondNumber !== "") clearCalculator();
+
   if (!operator) {
     if (firstNumber.toString().length === 9) return;
     firstNumber === 0 ? (firstNumber = value) : (firstNumber += value);
@@ -90,6 +93,7 @@ function clearCalculator() {
   operator = "";
   firstNumber = "";
   secondNumber = "";
+  result = "";
   updateDisplay(0);
 }
 
@@ -106,7 +110,7 @@ container.addEventListener("click", (event) => {
       setOperator(button.textContent);
       break;
     case "equal":
-      calculateResult();
+      result = calculateResult();
       break;
     case "clear":
       clearCalculator();
