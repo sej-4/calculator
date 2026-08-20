@@ -56,17 +56,20 @@ function clearCalculator() {
   result = "";
   updateDisplay(0);
 }
+function isMaxLength(value) {
+  return value.toString().length === 9;
+}
 
 function updateNumbers(value) {
   if (result !== "" && secondNumber !== "") clearCalculator();
 
   if (!operator) {
-    if (firstNumber.toString().length === 9) return;
+    if (isMaxLength(firstNumber)) return;
     firstNumber === 0 ? (firstNumber = value) : (firstNumber += value);
     firstNumber = Number(firstNumber);
     updateDisplay(firstNumber);
   } else {
-    if (secondNumber.toString().length === 9) return;
+    if (isMaxLength(secondNumber)) return;
     secondNumber === 0 ? (secondNumber = value) : (secondNumber += value);
     secondNumber = Number(secondNumber);
     updateDisplay(secondNumber);
