@@ -8,32 +8,31 @@ function round(value) {
   return Math.round(value * multiplier) / multiplier;
 }
 
-function add(a, b) {
-  return round(a + b);
-}
-
-function subtract(a, b) {
-  return round(a - b);
-}
-
-function multiply(a, b) {
-  return round(a * b);
-}
-
-function divide(a, b) {
-  return round(a / b);
-}
+const calculator = {
+  add(a, b) {
+    return round(a + b);
+  },
+  subtract(a, b) {
+    return round(a - b);
+  },
+  multiply(a, b) {
+    return round(a * b);
+  },
+  divide(a, b) {
+    return round(a / b);
+  },
+};
 
 function operate(operator, firstNumber, secondNumber) {
   switch (operator) {
     case "+":
-      return add(firstNumber, secondNumber);
+      return calculator.add(firstNumber, secondNumber);
     case "-":
-      return subtract(firstNumber, secondNumber);
+      return calculator.subtract(firstNumber, secondNumber);
     case "x":
-      return multiply(firstNumber, secondNumber);
+      return calculator.multiply(firstNumber, secondNumber);
     case "÷":
-      return divide(firstNumber, secondNumber);
+      return calculator.divide(firstNumber, secondNumber);
     default:
       return null;
   }
@@ -48,7 +47,7 @@ function convertToExponent() {
 function updateDisplay(value) {
   const display = document.querySelector(".display");
   display.textContent = value;
-  if (display.textContent.length > 9) convertToExponent();
+  if (display.textContent.length > 10) convertToExponent();
 }
 
 function updateNumbers(value) {
