@@ -38,9 +38,16 @@ function operate(operator, firstNumber, secondNumber) {
   }
 }
 
+function convertToExponent() {
+  const display = document.querySelector(".display");
+  const value = display.textContent;
+  display.textContent = Number(value).toExponential(2);
+}
+
 function updateDisplay(value) {
   const display = document.querySelector(".display");
   display.textContent = value;
+  if (display.textContent.length > 9) convertToExponent();
 }
 
 function updateNumbers(value) {
