@@ -45,10 +45,12 @@ function updateDisplay(value) {
 
 function updateNumbers(value) {
   if (!operator) {
+    if (firstNumber.toString().length === 9) return;
     firstNumber === 0 ? (firstNumber = value) : (firstNumber += value);
     firstNumber = Number(firstNumber);
     updateDisplay(firstNumber);
   } else {
+    if (secondNumber.toString().length === 9) return;
     secondNumber === 0 ? (secondNumber = value) : (secondNumber += value);
     secondNumber = Number(secondNumber);
     updateDisplay(secondNumber);
