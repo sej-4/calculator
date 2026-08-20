@@ -38,16 +38,15 @@ function operate(operator, firstNumber, secondNumber) {
   }
 }
 
-function convertToExponent() {
+function convertToExponentialNotation() {
   const display = document.querySelector(".display");
-  const value = display.textContent;
-  display.textContent = Number(value).toExponential(2);
+  display.textContent = Number(display.textContent).toExponential(2);
 }
 
 function updateDisplay(value) {
   const display = document.querySelector(".display");
   display.textContent = value;
-  if (display.textContent.length > 10) convertToExponent();
+  if (display.textContent.length > 10) convertToExponentialNotation();
 }
 
 function updateNumbers(value) {
