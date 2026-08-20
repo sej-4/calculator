@@ -62,7 +62,8 @@ function isMaxLength(value) {
 }
 
 function updateNumbers(value) {
-  if (result !== "" && secondNumber !== "") clearCalculator();
+  if (result !== "" && firstNumber !== "" && secondNumber !== "")
+    clearCalculator();
 
   if (!operator) {
     if (isMaxLength(firstNumber)) return;
@@ -80,12 +81,10 @@ function updateNumbers(value) {
 function setOperator(operatorType) {
   if (firstNumber === "") firstNumber = 0;
 
-  if (
-    (operator && firstNumber !== "" && secondNumber !== "") ||
-    isNaN(firstNumber)
-  ) {
+  if (operator && firstNumber !== "" && secondNumber !== "") {
     firstNumber = calculateResult();
     secondNumber = "";
+    result = "";
   }
 
   operator = operatorType;
