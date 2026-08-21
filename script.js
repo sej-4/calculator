@@ -81,7 +81,7 @@ function updateNumbers(value) {
 function setOperator(operatorType) {
   if (firstNumber === "") firstNumber = 0;
 
-  if (operator && firstNumber !== "" && secondNumber !== "") {
+  if (firstNumber !== "" && secondNumber !== "") {
     firstNumber = calculateResult();
     secondNumber = "";
     result = "";
