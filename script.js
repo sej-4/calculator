@@ -3,6 +3,19 @@ let firstNumber = "";
 let secondNumber = "";
 let result = "";
 
+function isMaxLength(value) {
+  return value.toString().length === 9;
+}
+
+function isEmpty(value) {
+  return value === "";
+}
+
+function convertToExponentialNotation() {
+  const display = document.querySelector(".display");
+  display.textContent = Number(display.textContent).toExponential(2);
+}
+
 function round(value) {
   const multiplier = Math.pow(10, 8);
   return Math.round(value * multiplier) / multiplier;
@@ -39,11 +52,6 @@ function operate(operator, firstNumber, secondNumber) {
   }
 }
 
-function convertToExponentialNotation() {
-  const display = document.querySelector(".display");
-  display.textContent = Number(display.textContent).toExponential(2);
-}
-
 function updateDisplay(value) {
   const display = document.querySelector(".display");
   display.textContent = value;
@@ -58,24 +66,18 @@ function clearCalculator() {
   updateDisplay(0);
 }
 
-function isMaxLength(value) {
-  return value.toString().length === 9;
-}
-
-function isEmpty(value) {
-  return value === "";
-}
-
 function updateNumbers(value) {
   if (!isEmpty(result)) clearCalculator();
 
   if (isEmpty(firstNumber)) {
     if (isMaxLength(firstNumber)) return;
+
     firstNumber === 0 ? (firstNumber = value) : (firstNumber += value);
     firstNumber = Number(firstNumber);
     updateDisplay(firstNumber);
   } else {
     if (isMaxLength(secondNumber)) return;
+
     secondNumber === 0 ? (secondNumber = value) : (secondNumber += value);
     secondNumber = Number(secondNumber);
     updateDisplay(secondNumber);
