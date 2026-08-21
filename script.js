@@ -67,8 +67,7 @@ function isEmpty(value) {
 }
 
 function updateNumbers(value) {
-  if (!isEmpty(firstNumber) && !isEmpty(secondNumber) && !isEmpty(result))
-    clearCalculator();
+  if (!isEmpty(result)) clearCalculator();
 
   if (isEmpty(firstNumber)) {
     if (isMaxLength(firstNumber)) return;
