@@ -57,15 +57,20 @@ function clearCalculator() {
   result = "";
   updateDisplay(0);
 }
+
 function isMaxLength(value) {
   return value.toString().length === 9;
 }
 
+function isEmpty(value) {
+  return value === "";
+}
+
 function updateNumbers(value) {
-  if (result !== "" && firstNumber !== "" && secondNumber !== "")
+  if (!isEmpty(firstNumber) && !isEmpty(secondNumber) && !isEmpty(result))
     clearCalculator();
 
-  if (!operator) {
+  if (isEmpty(firstNumber)) {
     if (isMaxLength(firstNumber)) return;
     firstNumber === 0 ? (firstNumber = value) : (firstNumber += value);
     firstNumber = Number(firstNumber);
@@ -79,9 +84,9 @@ function updateNumbers(value) {
 }
 
 function setOperator(operatorType) {
-  if (firstNumber === "") firstNumber = 0;
+  if (isEmpty(firstNumber)) firstNumber = 0;
 
-  if (firstNumber !== "" && secondNumber !== "") {
+  if (!isEmpty(firstNumber) && !isEmpty(secondNumber)) {
     firstNumber = calculateResult();
     secondNumber = "";
     result = "";
@@ -91,7 +96,7 @@ function setOperator(operatorType) {
 }
 
 function calculateResult() {
-  if (secondNumber === "") return;
+  if (isEmpty(secondNumber)) return;
 
   const result = operate(operator, firstNumber, secondNumber);
   updateDisplay(result);
